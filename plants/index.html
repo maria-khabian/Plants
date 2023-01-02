@@ -13,21 +13,22 @@
 
 <body class="body">
 
-  <header>
+  <header class="header">
     <div class="container">
       <div class="header-row">
         <div class="logo">
-          <img src="./assets/img/logo.svg" alt="logo">
-          <nav class="main-nav">
-            <ul>
-              <li><a href="">Home</a></li>
-              <li><a href="#aboutUs">About us</a></li>
-              <li><a href="#service">Service</a></li>
-              <li><a href="#price">Price</a></li>
-              <li><a href="#contacts">Contacts</a></li>
-            </ul>
-          </nav>
+          <img class="logo-img" src="./assets/img/logo.svg" alt="logo" width="20" height="20">
+          <h1 class="logo-header-title">Plants</h1>
         </div>
+        <nav class="main-nav">
+          <ul class="main-nav-list">
+            <li class="main-nav-item"><a href="">Home</a></li>
+            <li class="main-nav-item"><a href="#aboutUs">About us</a></li>
+            <li class="main-nav-item"><a href="#service">Service</a></li>
+            <li class="main-nav-item"><a href="#price">Price</a></li>
+            <li class="main-nav-item"><a href="#contacts">Contacts</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </header>
@@ -37,11 +38,11 @@
     <section class="welcome">
       <div class="container">
         <div class="welcome-row">
-          <img src="./assets/img/leafs-main.png" alt="leafs" class="welcome-img-left" width="448.8" height="407.36">
+          <img src="./assets/img/leafs-main.png" alt="leafs" class="welcome-img-left" width="450" height="423">
           <div class="welcome-right">
-            <h1 class="welcome-description-title">
+            <h2 class="welcome-description-title">
               We grow <span class="description-title-another">plants</span> and give you oxygen
-            </h1>
+            </h2>
             <p class="welcome-description">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
               industry's standard dummy text ever since the 1500s.
@@ -76,69 +77,79 @@
         <div class="service-top-row">
           <h2 id="service" class="service-title">Service and our projects</h2>
           <ul class="service-button-list">
-            <li class="service-button-item button-common"><button>Gardens</button></li>
-            <li class="service-button-item button-common"><button>Lawn</button></li>
-            <li class="service-button-item button-common"><button>Planting</button></li>
+            <li class="service-button-item"><button class="button-common" type="button">Gardens</button></li>
+            <li class="service-button-item"><button class="button-common" type="button">Lawn</button></li>
+            <li class="service-button-item"><button class="button-common" type="button">Planting</button></li>
           </ul>
         </div>
-        <div class="service-galery-row">
-          <ul class="service-galery-list">
-            <li class="service-galery-item">
-              <img class="item-img" src="./assets/img/first.png" alt="first" width="329" height="350">
+        <ul class="service-galery-list">
+          <li class="service-galery-item">
+            <img class="item-img" src="./assets/img/first.png" alt="first" width="329" height="350">
+            <div class="item-info">
               <p class="item-title">
                 Garden care
               </p>
               <p class="item-description">
                 Lorem Ipsum has been the industry
               </p>
-            </li>
-            <li class="service-galery-item">
-              <img class="item-img" src="./assets/img/second.png" alt="second" width="329" height="350">
+            </div>
+          </li>
+          <li class="service-galery-item">
+            <img class="item-img" src="./assets/img/second.png" alt="second" width="329" height="350">
+            <div class="item-info">
               <p class="item-title">
                 Planting
               </p>
               <p class="item-description">
                 Lorem Ipsum has been the industry
               </p>
-            </li>
-            <li class="service-galery-item">
-              <img class="item-img" src="./assets/img/third.png" alt="third" width="329" height="350">
+            </div>
+          </li>
+          <li class="service-galery-item">
+            <img class="item-img" src="./assets/img/third.png" alt="third" width="329" height="350">
+            <div class="item-info">
               <p class="item-title">
                 Lawn care
               </p>
               <p class="item-description">
                 Lorem Ipsum has been the industry
               </p>
-            </li>
-            <li class="service-galery-item">
-              <img class="item-img" src="./assets/img/fourth.png" alt="fourth" width="329" height="350">
+            </div>
+          </li>
+          <li class="service-galery-item">
+            <img class="item-img" src="./assets/img/fourth.png" alt="fourth" width="329" height="350">
+            <div class="item-info">
               <p class="item-title">
                 Planting
               </p>
               <p class="item-description">
                 Lorem Ipsum has been the industry
               </p>
-            </li>
-            <li class="service-galery-item">
-              <img class="item-img" src="./assets/img/fifth.png" alt="fifth" width="329" height="350">
+            </div>
+          </li>
+          <li class="service-galery-item">
+            <img class="item-img" src="./assets/img/fifth.png" alt="fifth" width="329" height="350">
+            <div class="item-info">
               <p class="item-title">
                 Garden care
               </p>
               <p class="item-description">
                 Lorem Ipsum has been the industry
               </p>
-            </li>
-            <li class="service-galery-item">
-              <img class="item-img" src="./assets/img/sixth.png" alt="sixth" width="329" height="350">
+            </div>
+          </li>
+          <li class="service-galery-item">
+            <img class="item-img" src="./assets/img/sixth.png" alt="sixth" width="329" height="350">
+            <div class="item-info">
               <p class="item-title">
                 Planting
               </p>
               <p class="item-description">
                 Lorem Ipsum has been the industry
               </p>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -157,10 +168,10 @@
           </div>
           <div class="prices-right-column">
             <p class="prices-description">
-              Our best gardeners are ready to help you
+              Our best <span class="prices-description-other">gardeners</span> are ready to help you
             </p>
-            <button class="prices-btn button-common">Contact us</button>
-            <img src="./assets/img/leafs-mini.png" alt="leafs-mini" width="152" height="175">
+            <button class="button-common prices-btn">Contact us</button>
+            <img class="prices-img" src="./assets/img/leafs-mini.png" alt="leafs-mini" width="157" height="184">
           </div>
         </div>
       </div>
