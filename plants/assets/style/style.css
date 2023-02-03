@@ -624,6 +624,11 @@ html {
   transition: 0.4s ease;
 }
 
+.button-common__active {
+  color: var(--white);
+  background: var(--orange);
+}
+
 .button-common:hover {
   color: var(--white);
   background: var(--orange);
@@ -639,6 +644,10 @@ html {
 .service-galery-item {
   padding: 0 58.5px;
   margin-bottom: 55px;
+}
+
+.service-galery-item__blur {
+  filter: blur(2px);
 }
 
 .item-img-tablet {

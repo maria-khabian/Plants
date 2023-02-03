@@ -1,4 +1,4 @@
-console.log('Ваша оценка - 85 баллов\nОтзыв по пунктам ТЗ:\nВыполненные пункты:\n1) Блок header\n2) Секция welcome\n3) Секция about\n4) Секция service\n5) Секция prices\n6) Секция contacts\n7) Блок footer\n8) Блок header\n9) Секция welcome\n10) Секция about\n11) Секция service\n12) Секция prices\n13) Секция contacts\n14) Блок footer\n15) нет полосы прокрутки при ширине страницы от 1440рх до 380px\n16) нет полосы прокрутки при ширине страницы от 380px до 320рх\n17) при ширине страницы 380рх панель навигации скрывается, появляется бургер-иконка\n18) при нажатии на бургер-иконку плавно появляется адаптивное меню\n19) адаптивное меню соответствует цветовой схеме макета\n20) при нажатии на крестик адаптивное меню плавно скрывается уезжая за экран\n21) ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям (все, кроме Account, она пока просто закрывает меню)\n22) при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, также скрытие меню происходит если сделать клик вне данного окна')
+// console.log('Ваша оценка - 85 баллов\nОтзыв по пунктам ТЗ:\nВыполненные пункты:\n1) Блок header\n2) Секция welcome\n3) Секция about\n4) Секция service\n5) Секция prices\n6) Секция contacts\n7) Блок footer\n8) Блок header\n9) Секция welcome\n10) Секция about\n11) Секция service\n12) Секция prices\n13) Секция contacts\n14) Блок footer\n15) нет полосы прокрутки при ширине страницы от 1440рх до 380px\n16) нет полосы прокрутки при ширине страницы от 380px до 320рх\n17) при ширине страницы 380рх панель навигации скрывается, появляется бургер-иконка\n18) при нажатии на бургер-иконку плавно появляется адаптивное меню\n19) адаптивное меню соответствует цветовой схеме макета\n20) при нажатии на крестик адаптивное меню плавно скрывается уезжая за экран\n21) ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям (все, кроме Account, она пока просто закрывает меню)\n22) при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, также скрытие меню происходит если сделать клик вне данного окна')
 
 const body = document.querySelector('.body')
 
@@ -7,7 +7,6 @@ const body = document.querySelector('.body')
 const navIconMenu = document.querySelector('.nav-icon-menu');
 const mainNav = document.querySelector('.main-nav');
 const headerMenu = document.querySelector('.header-menu')
-// console.log(navItem)
 
 if(navIconMenu && mainNav) {
   navIconMenu.addEventListener('click', (event) => {
@@ -50,3 +49,54 @@ headerMenu.addEventListener('click', (event) => {
 })
 
 
+// BLUR
+
+// Метод indexOf() ищет в массиве указанный элемент и возвращает его позицию.
+// Метод splice() изменяет содержимое массива, удаляя существующие элементы и/или добавляя новые.
+
+const removeElement = (array, value) => {
+  var index = array.indexOf(value);
+  if (index !== -1) {
+    array.splice(index, 1);
+  }
+}
+
+console.log('skript')
+const serviceButtons = document.querySelectorAll('.service-button-item')
+const serviceItem = document.querySelectorAll('.service-galery-item')
+const arrButtonsActive = [];
+const serviceActive = [];
+
+serviceButtons.forEach(button => {
+
+  button.addEventListener('click', (event) => {
+
+    const { target } = event;
+    // Проверка есть ли в массиве arrButtonsActive две нажатые кнопки, если есть - то третья не нажимается
+
+    if(!(target.classList.contains('button-common__active'))) {
+
+      if(arrButtonsActive.length < 2) {
+        target.classList.add('button-common__active');
+        arrButtonsActive.push(target);
+        serviceActive.push(target.dataset.service);
+      }
+
+    } else {
+      target.classList.remove('button-common__active')
+      arrButtonsActive.pop();
+      removeElement(serviceActive, target.dataset.service)
+    }
+    // Блюр карточек, если кнопки неактивны и незаблюренные карточки, если кнопки активны
+    // serviceActive - массив для активных кнопок
+    serviceItem.forEach(itemGalery => {
+        if(serviceActive.includes(itemGalery.dataset.service)){
+          itemGalery.classList.remove('service-galery-item__blur');
+        } else {
+          itemGalery.classList.add('service-galery-item__blur');
+        }
+
+    })
+
+  })
+})
