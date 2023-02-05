@@ -1,5 +1,3 @@
-// console.log('Ваша оценка - 85 баллов\nОтзыв по пунктам ТЗ:\nВыполненные пункты:\n1) Блок header\n2) Секция welcome\n3) Секция about\n4) Секция service\n5) Секция prices\n6) Секция contacts\n7) Блок footer\n8) Блок header\n9) Секция welcome\n10) Секция about\n11) Секция service\n12) Секция prices\n13) Секция contacts\n14) Блок footer\n15) нет полосы прокрутки при ширине страницы от 1440рх до 380px\n16) нет полосы прокрутки при ширине страницы от 380px до 320рх\n17) при ширине страницы 380рх панель навигации скрывается, появляется бургер-иконка\n18) при нажатии на бургер-иконку плавно появляется адаптивное меню\n19) адаптивное меню соответствует цветовой схеме макета\n20) при нажатии на крестик адаптивное меню плавно скрывается уезжая за экран\n21) ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям (все, кроме Account, она пока просто закрывает меню)\n22) при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, также скрытие меню происходит если сделать клик вне данного окна')
-
 const body = document.querySelector('.body')
 
 // Меню бургер
@@ -100,3 +98,93 @@ serviceButtons.forEach(button => {
 
   })
 })
+
+
+
+// BTN-PRICES OPEN / CLOSE
+
+const buttonDropDown = document.querySelectorAll('.item-btn');
+const cards = document.querySelectorAll('.prices-item')
+// console.log(card)
+const arrButton = []
+
+buttonDropDown.forEach(button => {
+  button.addEventListener('click', (event) => {
+    const { target } = event;
+    // console.log(target)
+    if(target.classList.contains('item-btn_active')) {
+      target.classList.remove('item-btn_active');
+      cards.forEach(card => {
+        if(card.classList.contains('prices-item__active')) {
+          card.classList.remove('prices-item__active')
+        }
+      })
+    } else {
+      buttonDropDown.forEach(btn => {
+        if(btn.classList.contains('item-btn_active')) {
+          btn.classList.remove('item-btn_active')
+          cards.forEach(card => {
+            if(card.classList.contains('prices-item__active')) {
+              card.classList.remove('prices-item__active')
+            }
+          })
+        }
+        target.classList.add('item-btn_active')
+        cards.forEach(card => {
+          if(card.dataset.price === target.dataset.price) {
+            card.classList.add('prices-item__active')
+          }
+        })
+      })
+
+    }
+
+  })
+})
+
+// SELECT CONTACT CITY
+
+const selectCommon = document.querySelector('.contacts-header-row');
+const select = document.querySelector('.contacts-header');
+
+const contactsItemCity = document.querySelectorAll('.contacts-item');
+const textCity = document.querySelector('.contacts-header-name');
+const contactCards = document.querySelectorAll('.contact-card-item');
+const imgGirl = document.querySelector('.contact-img-tablet');
+
+// Открытие/закрытие списка с городами при нажатии
+// Тут же, если опять открываем выбор города - удаляется карточка если она была выведена
+
+select.addEventListener('click', () => {
+  selectCommon.classList.toggle('_active')
+  contactCards.forEach(card => {
+    card.classList.remove('contact-card-item_active');
+  })
+})
+
+// Реализовано добавление названия города вместо слова City
+// Добавление карточки и смена фона в окне выборки
+
+contactsItemCity.forEach( itemCity => {
+  itemCity.addEventListener('click', (event) => {
+  const { target } = event
+  textCity.textContent = target.textContent;
+  selectCommon.classList.toggle('_active');
+  selectCommon.classList.add('_active-show-card')
+  contactCards.forEach(card => {
+    card.classList.remove('contact-card-item_active');
+    if(card.dataset.city === target.textContent) {
+      card.classList.add('contact-card-item_active');
+    }
+    if(window.innerWidth <= 380 && card.classList.contains('contact-card-item_active')) {
+      imgGirl.classList.add('hidden')
+    }
+  })
+  })
+})
+
+
+
+
+
+
